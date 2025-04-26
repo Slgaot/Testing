@@ -1,5 +1,7 @@
 package DomainEntities;
 
+import javaTesting.Resources.PasswordUtils;
+
 public class User {
     private String name;
     private String password; //passwrd in hash mode and salted
@@ -12,7 +14,10 @@ public class User {
 
     public User(String name, String password) {
         this.name = name;
-        this.password = password;
+        //this.password = password; //Insegura !!!
+        this.salt = PasswordUtils.genSalt();
+        //falta fer hashn amb salt del password
+        this.password = PasswordUtils.hashedPassword(password, this.salt);
     }
 
     public String getName() {
@@ -23,11 +28,11 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
+    public boolean verifyPassword(String passwordEntered) {
+        return PasswordUtils.verifyUserPassword(passwordEntered, salt, password);
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = PasswordUtils.hashedPassword(password,salt);
     }
 }
