@@ -8,13 +8,11 @@ public class UserTest {
 
     @Test
     public void constructUserTest() {
-        User usuari = new User("Tomeu", "secret");
+        User usuari = new User();
 
         assertTrue(usuari != null);
 
         assertEquals(usuari.getName(), "Tomeu");
-        //assertEquals(usuari.getPassword(), "secret");
-
-        assertTrue(usuari.verifyPassword("secret"));
+        assertEquals(usuari.getPassword(), "secret");
     }
 }
