@@ -32,4 +32,15 @@ public class AppParametersTest {
         Assert.assertEquals("Retorna la URL correctE", URL_EXPECTED  , AppParameters.deployedURL());
 
     }
+
+    @Test
+    public void singletonCorrectness() {
+        AppParameters inst1 = AppParameters.getInstance();
+
+        AppParameters inst2 = AppParameters.getInstance();
+
+        Assert.assertTrue("Comprovacio unicitat instancia del singleton", (inst1 == inst2));
+
+    }
+
 }
