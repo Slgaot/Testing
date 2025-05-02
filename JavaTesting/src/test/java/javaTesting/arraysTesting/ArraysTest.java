@@ -58,9 +58,31 @@ public class ArraysTest {
 
         assertTrue(feinersEsclaus[0].equals("dilluns"));
 
-        assertEquals(feiners[5], null);
+        assertEquals(feinersEsclaus[5], null);
+        assertEquals(feinersEsclaus[6], null);
+
+        feinersEsclaus[5] = "dissabteDeFeina";
+        feinersEsclaus[6] = "diaDeDescans";
+
+        assertTrue(feinersEsclaus[6].equals("diaDeDescans"));
+
     }
 
+    @Test
+    public void arraysIrregularsTest() {
+        int[][] arrayIrregular = {
+                {0, 1, 2, 3, 4, 5},
+                {0, 1, 2, 3, 4},
+                {0, 1, 2, 3},
+                {0, 1, 2},
+                {0, 1},
+                {0}
+        };
+
+        assertEquals(arrayIrregular.length, 6);
+        assertEquals(arrayIrregular[0].length, 6);
+        assertEquals(arrayIrregular[5].length, 1);
+    }
 
 }
 
