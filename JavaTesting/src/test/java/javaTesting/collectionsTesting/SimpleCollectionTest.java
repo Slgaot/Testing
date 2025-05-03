@@ -2,6 +2,7 @@ package javaTesting.collectionsTesting;
 
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.*;
 
@@ -17,6 +18,14 @@ public class SimpleCollectionTest {
             numerals.add(s);
         }
 
-        assertTrue(numerals.size() == 4);
+        numerals.add("quatre");
+
+        assertTrue(numerals.size() == 5);
+
+        List<String> llistaNumeros = Arrays.asList(nombres);
+
+        // llistaNumeros.add("quatre"); // Esto lanzaría una excepción si se descomenta
+
+        assertTrue(llistaNumeros.size() == 4);
     }
 }
